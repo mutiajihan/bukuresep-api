@@ -17,4 +17,49 @@ router.post("/create", async (req, res) => {
   }
 });
 
+router.get("/", async (req, res) => {
+  try {
+    const review = await Review.find().populate("categoryId");
+    res.json(recipe);
+  } catch (error) {
+    res.json({ message: error });
+  }
+});
+
+router.delete("/:ID", async (req, res) => {
+  try {
+    const review = await Review.deleteOne({
+      _id: req.params.ID,
+    });
+    res.json(review);
+  } catch (error) {
+    res.json({
+      message: error,
+    });
+  }
+});
+
+router.put("/:id", async (req, res) => {
+  try {
+    const review = await Review.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+    });
+    res.status(200).json({
+      message: "Review Updated",
+      Data: review,
+    });
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
+router.get("/:id", async (req, res) => {
+  try {
+    const review = await Review.findById(req.params.id);
+    res.status(200).json(recipe);
+  } catch (error) {
+    res.status(500).json(error);
+  }
+});
+
 module.exports = router;
