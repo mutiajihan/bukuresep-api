@@ -19,8 +19,8 @@ router.post("/create", async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    const review = await Review.find().populate("categoryId");
-    res.json(recipe);
+    const review = await Review.find().populate("recipeId");
+    res.json(review);
   } catch (error) {
     res.json({ message: error });
   }
