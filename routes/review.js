@@ -56,7 +56,7 @@ router.put("/:id", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const review = await Review.findById(req.params.id);
-    res.status(200).json(recipe);
+    res.status(200).json(review);
   } catch (error) {
     res.status(500).json(error);
   }
