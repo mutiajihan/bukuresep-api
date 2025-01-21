@@ -7,11 +7,7 @@ const ReviewSchema = new mongoose.Schema({
     ref: "Recipe",
   },
 
-  userId: {
-    type: String,
-    required: true,
-  },
-
+ 
   rating: {
     type: Number,
     required: true,
