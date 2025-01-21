@@ -14,12 +14,7 @@ app.use(
   })
 );
 app.use(bodyParser.json());
-const corsOptions = {
-  origin: 'https://bukuresep-git-main-mutiajihans-projects.vercel.app', // Frontend URL
-  credentials: true,
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
 // (7) import routes
 const categoryRoutes = require("./routes/category");
 const recipeRoutes = require("./routes/recipes");
