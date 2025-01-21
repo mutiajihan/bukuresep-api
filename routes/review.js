@@ -5,7 +5,7 @@ const Review = require("../models/Review");
 router.post("/create", async (req, res) => {
   const dataReview = new Review({
     recipeId: req.body.recipeId,
-    userId: req.body.userId,
+
     rating: req.body.rating,
     comment: req.body.comment,
   });
