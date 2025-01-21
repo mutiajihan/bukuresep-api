@@ -14,7 +14,12 @@ app.use(
   })
 );
 app.use(bodyParser.json());
-app.use(cors());
+// CORS configuration (allow requests from your frontend domain)
+const corsOptions = {
+  origin: "https://bukuresep-git-main-mutiajihans-projects.vercel.app/login", // Replace with your actual frontend URL
+  credentials: true,
+};
+app.use(cors(corsOptions));
 // (7) import routes
 const categoryRoutes = require("./routes/category");
 const recipeRoutes = require("./routes/recipes");
